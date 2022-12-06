@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
+
+
+namespace Projetofina2.Entities
+{
+    class ContratoPessoaJuridica : Contrato
+    {
+        public int CNPJ { get; set; }
+        public int Insc_estadual { get; set; }
+
+        public ContratoPessoaJuridica()
+        {
+
+        }
+        public ContratoPessoaJuridica(int numero, string contratante, double valor, DateTime prazo, int cnpj, int insc_estadual)
+            : base(numero, contratante, valor, prazo)
+        {
+            CNPJ = cnpj;
+            Insc_estadual = insc_estadual;
+        }
+        public override double CalcularPrestacao()
+        {
+            Valor_prestacao = 3;
+            return base.Valor_prestacao;
+        }
+        public override void ExibirInfo(double valor, DateTime prazo)
+        {
+            Valor = valor;
+
+            Prazo = prazo;
+
+
+
+
+        }
+    }
+}
