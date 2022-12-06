@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Globalization;
+
+
+namespace Projetofina2.Entities
+{
+    class ContratoPessoaFisica : Contrato
+    {
+        public int CPF;
+        public int Idade;
+
+        public ContratoPessoaFisica()
+        {
+
+        }
+        public ContratoPessoaFisica(int numero, string contratante, double valor, DateTime prazo, int idade, int cpf) :
+            base(numero, contratante, valor, prazo)
+        {
+            CPF = cpf;
+            Idade = idade;
+        }
+        public override double CalcularPrestacao()
+        {
+            if (Idade <= 30)
+            {
+                Valor_prestacao = 1;
+                return base.Valor_prestacao;
+            }
+            else if (Idade <= 40)
+            {
+                Valor_prestacao = 2;
+                return base.Valor_prestacao;
+            }
+            else if (Idade <= 50)
+            {
+                Valor_prestacao = 3;
+                return base.Valor_prestacao;
+            }
+            else
+            {
+                Valor_prestacao = 4;
+                return base.Valor_prestacao;
+            }
+        }
+        public override void ExibirInfo(double valor, DateTime prazo)
+        {
+
+
+            Valor = valor;
+            Prazo = prazo;
+            Idade = Idade;
+
+        }
+    }
+}
